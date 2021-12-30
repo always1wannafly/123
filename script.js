@@ -1,21 +1,17 @@
-async function getResponse() {
+//function init() {
+//var name = "Mozilla"; // name - локальная переменная, созданная в init
+//function displayName() { // displayName() - внутренняя функция, замыкание
+//  alert (name); // displayName() использует переменную, объявленную в родительской функции
+//}
+//displayName();
+//}
+//init();
+console.log(this)
 
-    let response = await fetch('https://jsonplaceholder.typicode.com/posts')
-    let content = await response.json()
-    content = (content.splice(0, 5))
-    let list = document.querySelector('.posts')
+function abc() {
+    console.log(this)
+    this.style.background = 'red';
 
-    let key;
-    for (key in content) {
-        list.innerHTML += `
-        <li class="post">
-                <h2>${content[key].title}</h2>
-                <p>${content[key].body}</p>
-            </li>
-
-
-        `
-
-    }
 }
-getResponse()
+
+document.querySelector('p').onclick = abc
